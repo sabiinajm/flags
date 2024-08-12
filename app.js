@@ -34,8 +34,12 @@ window.addEventListener('resize', () => {
 });
 
 const img1 = document.getElementById('img1')
-const name1 = document.getElementById('name1')
-const region1 = document.getElementById('region')
-const area1 = document.getElementById('area')
-const pop1 = document.getElementById('pop')
-img1.innerHTML = `<img src='${img[1]}'/>`
+const info1 = document.getElementById('info1')
+
+img1.innerHTML = `<img src='${imgs[1]}'/>`;
+    info1.innerHTML = `
+        <h2>${names[1]}</h2>
+        <h4>${region[1]}</h4>
+        <p>Capital: ${capital[1]}</span></p>
+        <p>Area: ${area[1]}</span> km2</p>
+        <p>Population: ${population[1]}</span></p>`;

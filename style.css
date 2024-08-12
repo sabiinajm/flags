@@ -23,6 +23,11 @@ html a{
     padding: 20px;
     margin: auto;
 }
+.container-2{
+    max-width: 600px;
+    padding: 20px;
+    margin: auto;
+}
 .m-hidden{display: none;}
 .d-hidden{display: flex;}
 #navbar{
@@ -133,11 +138,25 @@ button{
 #img1 img{
     width: 100%;
 }
-
+h2{
+    margin-bottom: 20px;
+}
+#info1{
+    padding: 20px;
+    border-bottom: 2px solid var(--primary);
+}
+h4{
+    color: var(--primary);
+    text-decoration: underline;
+}
+#info1 p{
+    margin-top: 5px;
+}
 @media only screen and (min-width: 768px) {
     .m-hidden{display: flex;}
     .d-hidden{display: none;}
     .container{max-width: 800px;}
+    .container-2{max-width: 1000px;}
     .menu li {
         padding: 0 20px; 
         margin: 0 5px; 
@@ -182,5 +201,24 @@ button{
     }
     .welcome h1{
         font-size: 2.2rem;
+    }
+    #img1 img{
+        width: 95%;
+        border-radius: 2px;
+    }
+    #info1{
+        width: 90%;
+        border-bottom: none;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1);
+    }
+    #country{
+        display: flex;
+    }
+    h4{
+        color: var(--primary);
+        text-decoration: underline;
+    }
+    #info1 p{
+        margin-top: 5px;
     }
 }
