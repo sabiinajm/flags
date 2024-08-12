@@ -58,7 +58,6 @@ html a{
     top: 102px;
     left: 0;
     width: 100%;
-    height: 0;
     transition: .6s linear;
     overflow: hidden;
 }
