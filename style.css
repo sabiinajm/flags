@@ -18,7 +18,8 @@ html a{
     color: #000;
     text-decoration: none;
 }
-.container{
+.container,
+.container-3{
     max-width: 500px;
     padding: 20px;
     margin: auto;
@@ -65,6 +66,7 @@ html a{
     width: 100%;
     transition: .6s linear;
     overflow: hidden;
+    height: 0;
 }
 .menu li {
     width: 100vw;
@@ -84,16 +86,15 @@ html a{
 .left-menu{
     background-color: #fff;
     position: absolute;
-    top: 0;
 }
 .right-menu{
     background-color: #fff;
     position: absolute;
-    top: 150px;
 }
 main{
     background-color: var(--bg);
-    transition: all 1s linear;
+    transition-delay: .5s;
+    transition: all 1.2s linear;
 }
 .welcome{
     min-height: 65vh;
@@ -114,6 +115,7 @@ main{
     text-align: center;
     justify-content: center;
     gap: 20px;
+    padding-bottom: 20px;
 }
 button{
     background-color: var(--primary);
@@ -131,6 +133,17 @@ button{
 }
 .btn-qara{
     background-color: #000;
+}
+.btn-trs{
+    background-color: transparent;
+    border: 1px solid #666;
+    color: #333;
+    cursor: pointer;
+}
+.btn-trs:hover{
+    background-color: var(--primary);
+    transition: .2s;
+    color: #fff;
 }
 .btn-qara:hover{
     background-color: var(--black-hover);
@@ -152,11 +165,55 @@ h4{
 #info1 p{
     margin-top: 5px;
 }
+.about{
+    display: flex;
+    justify-content: space-between;
+}
+#card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+    justify-items: center;
+}
+#card-1{
+    background-color: #fff;
+    min-height: 400px;
+    width: 100%;
+    margin: auto;
+}
+#card-1:hover{
+    cursor: pointer;
+    h2{
+        text-decoration: underline;
+    }
+}
+#card-img img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}
+#card-info{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    line-height: 2rem;
+}
+#card-info p {font-size: .8rem;}
+footer{
+    height: 30px;
+}
+footer p{
+    text-align: center;
+    color: var(--primary);
+    font-weight: 700;
+    padding-top: 5px;
+}
 @media only screen and (min-width: 768px) {
     .m-hidden{display: flex;}
     .d-hidden{display: none;}
     .container{max-width: 800px;}
     .container-2{max-width: 1000px;}
+    .container-3{max-width: 1200px;}
     .menu li {
         padding: 0 20px; 
         margin: 0 5px; 
