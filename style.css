@@ -59,17 +59,20 @@ html a{
     font-size: 1.3rem;
     color: #000;
 }
-.menu{ 
-    position: absolute;
+#mobile-menu{ 
+    position: static;
     top: 102px;
     left: 0;
     width: 100%;
-    transition: .6s linear;
+    max-height: 0;
+    /* opacity: 1; */
     overflow: hidden;
-    height: 0;
+    flex-direction: column;
+    background-color: #fff;
+    transition: all 1.5s;
 }
 .menu li {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,18 +86,13 @@ html a{
     justify-content: center;
     align-items: center;
 }
-.left-menu{
-    background-color: #fff;
-    position: absolute;
-}
-.right-menu{
-    background-color: #fff;
-    position: absolute;
+.left-menu, .right-menu{ 
+    display: flex;
+    justify-content: space-evenly;
 }
 main{
     background-color: var(--bg);
-    transition-delay: .5s;
-    transition: all 1.2s linear;
+    transition: all 1.5s;
 }
 .welcome{
     min-height: 65vh;
@@ -227,27 +225,8 @@ footer p{
         position: absolute;
         right: 10px;
     }
-    .menu{ 
-        position: static;
-        display: flex;
-        width: initial;
-        height: fit-content;
-    }
-    .menu li {
-        width: initial;
-    }
     .menu li a{ 
         border-top: none; 
-    }
-    .left-menu{
-        position: static;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .right-menu{
-        position: static;
-        display: flex;
-    
     }
     #navbar #logo:active, .menu li:active, .current{
         border-bottom: 2px solid var(--primary);

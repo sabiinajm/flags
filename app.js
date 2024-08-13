@@ -1,38 +1,17 @@
 const hamburger = document.getElementById('hamburger');
-const leftMenu = document.getElementsByClassName('menu')[0];
+const mobileMenu = document.getElementById('mobile-menu');
 const rightMenu = document.getElementsByClassName('menu')[1];
 const main = document.querySelector('main');
 let flag = true;
-let size = 768;
 
 function show() {
     if (flag) {
-        leftMenu.style.height = '28vh';
-        rightMenu.style.height = '28vh';
-        rightMenu.style.top = 'calc(102px + 28vh)';
-        leftMenu.style.transitionDelay = '0s';
-        rightMenu.style.transitionDelay = '.6s';
-        main.style.marginTop = '56vh';
+        mobileMenu.style.maxHeight = '500px';
     } else {
-        leftMenu.style.height = '0';
-        rightMenu.style.height = '0';
-        leftMenu.style.transitionDelay = '.6s';
-        rightMenu.style.transitionDelay = '0s';
-        main.style.marginTop = '0';
+        mobileMenu.style.maxHeight = '0';
     }
     flag = !flag;
 }
-
-if (window.innerWidth < size) {
-    hamburger.addEventListener('click', show);
-}
-window.addEventListener('resize', () => {
-    if (window.innerWidth >= size) {
-        leftMenu.style.height = '';
-        rightMenu.style.height = '';
-        main.style.marginTop = '';
-    }
-});
 
 const img1 = document.getElementById('img1');
 const info1 = document.getElementById('info1');
