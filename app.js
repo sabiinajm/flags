@@ -28,7 +28,7 @@ info1.innerHTML = `
 function displayCountries(startIndex, count){
     let kod = ''
     for(let i = startIndex; i < startIndex + count; i++){
-            kod += `<div id="card-1">
+            kod += `<div id="card-1" class=" ${flag ? '' : 'dark-mode'}">
                 <div id="card-img"><img src='${countries[i].flag}' alt="${countries[i].name} flag"/></div>
                 <div id='card-info'>
                     <p>${countries[i].region}</p>
@@ -72,7 +72,6 @@ function change() {
         card.classList.toggle("dark-mode")
     })
     main.classList.toggle("dark2-mode")
-    
     if (flag) {
         mode.innerHTML = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-[25px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>'
     } else {
