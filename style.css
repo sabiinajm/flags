@@ -52,7 +52,8 @@ html a{
 #logo{
     font-size: 2.5rem;
 }
-#mode{
+#sun-mode,
+#moon-mode{
     font-size: 1.5rem;
 }
 .dark-mode {
@@ -235,7 +236,8 @@ footer p{
         height: 60px; 
         align-items: center;
     }
-    #mode {
+    #sun-mode,
+    #moon-mode {
         display: block;
         position: absolute;
         right: 10px;
