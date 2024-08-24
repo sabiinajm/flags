@@ -45,9 +45,12 @@
             <div class="welcome">
                 <h1>Welcome to CountryApp Website</h1>
                 <h1 class="txt-primary">You can find data  of any country  in this website.</h1>
+                <div class="inp-container">
+                    <input id="inp" oninput="search()" type="text" placeholder="Search..."/>
+                </div>
                 <div class="buttons">
-                    <button class="btn-1">Have a look</button>
-                    <button class="btn-qara">Search</button>
+                    <button onclick="goDown()" class="btn-1">Have a look</button>
+                    <button onclick="showSearch()" class="btn-qara">Search</button>
                 </div>
             </div>
         </div>

@@ -24,12 +24,12 @@ info1.innerHTML = `
     <p>Capital: ${countries[x].capital}</p>
     <p>Area: ${countries[x].area} km²</p>
     <p>Population: ${countries[x].population}</p>`
-    
+
 let startIndex = 0
 const count = 20
 function displayCountries(startIndex, count) {
-    let endIndex  = startIndex + count
-    const kod = countries.slice(startIndex, endIndex).map(country => 
+    let endIndex = startIndex + count
+    const kod = countries.slice(startIndex, endIndex).map(country =>
         `<div id="card-1" class=" ${flag2 ? '' : 'dark-mode'}">
             <div id="card-img"><img src='${country.flag}' alt="${country.name} flag"/></div>
             <div id='card-info'>
@@ -41,17 +41,17 @@ function displayCountries(startIndex, count) {
                 </div>
             </div>
         </div>`).join('')
-        card.innerHTML += kod
-        if (endIndex >= countries.length - 1) {
-            end.innerHTML = '<h3>No more</h3>'
-        }
-    } 
-    function more() {
-        displayCountries(startIndex, count)
-        startIndex += count
+    card.innerHTML += kod
+    if (endIndex >= countries.length - 1) {
+        end.innerHTML = '<h3>No more</h3>'
     }
+}
+function more() {
     displayCountries(startIndex, count)
     startIndex += count
+}
+displayCountries(startIndex, count)
+startIndex += count
 
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -79,30 +79,87 @@ function change() {
         sunmode.style.display = 'none'
     } else {
         moonmode.style.display = 'none'
-        sunmode.style.display = 'block'  
+        sunmode.style.display = 'block'
     }
     flag2 = !flag2;
 }
 const country = document.getElementById("country")
-function changeRegion(element){
+function changeRegion(element) {
     let regionName = element.textContent
     kod = ''
-    for(let i = 0; i <= countries.length - 1; i++){
-        if(countries[i].region == regionName) {
+    console.log(regionName);
+
+
+    countries.map(item => {
+        if (item.region == regionName) {
             country.style.display = 'none'
-            kod+= `<div id="card-1" class=" ${flag2 ? '' : 'dark-mode'}">
-            <div id="card-img"><img src='${countries[i].flag}' alt="${countries[i].name} flag"/></div>
-            <div id='card-info'>
-                <p class='${countries[i].region}'>${countries[i].region}</p>
-                <h2>${countries[i].name}</h2>
-                <div class="about">
-                    <p>Population: ${countries[i].population}</p>
-                    <p>Area: ${countries[i].area} km²</p>
-                </div>
-            </div>
-        </div>`
-        end.innerHTML = '<h3>No more</h3>'
+            kod += `<div id="card-1" class=" ${flag2 ? '' : 'dark-mode'}">
+                    <div id="card-img"><img src='${item.flag}' alt="${item.name} flag"/></div>
+                    <div id='card-info'>
+                        <p class='${item.region}'>${item.region}</p>
+                        <h2>${item.name}</h2>
+                        <div class="about">
+                            <p>Population: ${item.population}</p>
+                            <p>Area: ${item.area} km²</p>
+                        </div>
+                    </div>
+                </div>`
+            end.innerHTML = '<h3>No more</h3>'
+        }
+    })
+    card.innerHTML = kod
+}
+let flag3 = true;
+function showSearch() {
+    if (flag3) {
+        inp.style.height = '40px';
+        inp.style.padding = '10px';
+    } else {
+        inp.style.height = '0';
+        inp.style.padding = '0';
+        inp.style.overflow = 'hidden';
+    }
+    inp.style.transition = 'all 0.3s';
+    flag3 = !flag3;
+}
+function goDown() {
+    window.scrollBy({ top: 400, behavior: 'smooth' });
+}
+function search() {
+    const inpVal = document.getElementById('inp').value.trim().toLowerCase();
+    let kod = '';
+    
+    if (inpVal === '') {
+        country.style.display = 'flex';
+        card.style.display = 'grid';
+        end.style.display = 'block';
+        displayCountries(0, 20);
+        return;
+    } else {
+        country.style.display = 'none';
+        end.style.display = 'none';
+        countries.forEach(item => {
+            if (item.name.toLowerCase().startsWith(inpVal)) {
+                kod += `<div id="card-1" class="${flag2 ? '' : 'dark-mode'}">
+                    <div id="card-img"><img src='${item.flag}' alt="${item.name} flag"/></div>
+                    <div id='card-info'>
+                        <p class='${item.region}'>${item.region}</p>
+                        <h2>${item.name}</h2>
+                        <div class="about">
+                            <p>Population: ${item.population}</p>
+                            <p>Area: ${item.area} km²</p>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+        
+        if (kod === '') {
+            end.innerHTML = '<h3>No results found</h3>';
+            end.style.display = 'block';
+        } else {
+            card.innerHTML = kod;
+            card.style.display = 'grid';
         }
     }
-    card.innerHTML = kod
 }

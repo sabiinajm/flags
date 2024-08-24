@@ -122,6 +122,22 @@ main{
     font-size: 1.8rem;
 }
 .txt-primary { color: var(--primary) !important;}
+.inp-container {
+    width: 100%;
+    max-width: 240px;
+  }
+
+#inp{
+    width: 100%;
+    padding: 0;
+    height: 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+#inp::placeholder{
+    color-scheme: #cbcbcb;
+}
 .buttons{
     display: flex;
     flex-wrap: wrap;
