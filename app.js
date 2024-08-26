@@ -191,7 +191,7 @@ function showInfo(cardElement) {
 
     if (selectedCountry) {
         const infoHTML = `
-            <div class="card-selected ${flag2 ? '' : 'dark-mode'}">
+            <div class="card-selected ">
                 <div id="card-img-selected"><img src='${selectedCountry.flag}' alt="${selectedCountry.name} flag"/></div>
                 <div id='card-info-selected'>
                     <h1>${selectedCountry.name}</h1>
