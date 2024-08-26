@@ -173,7 +173,9 @@ function search() {
     }
 }
 
+// when clicked on card
 const welcome = document.getElementsByClassName('welcome')[0]
+let ogWelcome = welcome.innerHTML;
 function showInfo(cardElement) {
     card.style.display = 'none'
     country.style.display = 'none'
@@ -205,12 +207,13 @@ function showInfo(cardElement) {
 
 // when clicked on logo
 function restart() {
-    welcome.style.display= 'flex';
-    card.innerHTML = '';
-    card.style.display = 'grid';
-    country.style.display = 'flex';
-    end.style.display = 'block';
-    displayCountries(0, 20);
+    welcome.innerHTML = ogWelcome
+    welcome.style.display= 'flex'
+    card.innerHTML = ''
+    card.style.display = 'grid'
+    country.style.display = 'flex'
+    end.style.display = 'block'
+    displayCountries(0, 20)
 }
 
 AOS.init();
