@@ -1,7 +1,6 @@
 let flag1 = true
 let flag2 = true
 let flag3 = true
-const logo = document.getElementById('logo')
 
 // hamburger menu
 const mobileMenu = document.getElementById('mobile-menu')
@@ -49,7 +48,7 @@ function displayCountries(startIndex, count) {
             </div>
         </div>`).join('')
     card.innerHTML += kod
-    if (endIndex >= countries.length - 1) {
+    if (endIndex >= countries.length) {
         end.innerHTML = '<h3>No more</h3>'
     }
 }
@@ -113,7 +112,6 @@ function changeRegion(element) {
             }
         })
         card.innerHTML = kod
-        displayCountries(0,20)
 }
 
 // display search input
@@ -141,6 +139,7 @@ function search() {
     let kod = ''
 
     if (inpVal === '') {
+        card.innerHTML = ''
         country.style.display = 'flex'
         card.style.display = 'grid'
         end.style.display = 'block'
@@ -203,15 +202,15 @@ function showInfo(cardElement) {
         welcome.innerHTML = infoHTML
     }
 }
+
+// when clicked on logo
 function restart() {
-    clearRegionFilter()
-    displayCountries(0, 20)
-}
-function clearRegionFilter() {
-    country.style.display = 'flex'
-    card.style.display = 'grid'
-    end.style.display = 'block'
-    card.innerHTML = ''
+    welcome.style.display= 'flex';
+    card.innerHTML = '';
+    card.style.display = 'grid';
+    country.style.display = 'flex';
+    end.style.display = 'block';
+    displayCountries(0, 20);
 }
 
 AOS.init();
